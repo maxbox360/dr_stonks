@@ -21,6 +21,7 @@ jobs:
           echo "BLUESKY_USERNAME is set"
           echo ${{ secrets.BLUESKY_USERNAME }}
           echo "BLUESKY_PASSWORD is set"
+          echo ${{ secrets.BLUESKY_PASSWORD }}
         env:
           BLUESKY_USERNAME: ${{ secrets.BLUESKY_USERNAME }}
           BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
