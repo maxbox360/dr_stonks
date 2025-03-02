@@ -1,3 +1,4 @@
 yfinance==0.2.54
 atproto==0.0.58
 python-dotenv==1.0.1
+pillow==11.1.0
