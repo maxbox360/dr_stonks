@@ -16,12 +16,9 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
 
-      - name: Debug Environment Variables
+      - name: Run Dr Stonks
         run: |
-          echo "BLUESKY_USERNAME is set"
-          echo ${{ secrets.BLUESKY_USERNAME }}
-          echo "BLUESKY_PASSWORD is set"
-          echo ${{ secrets.BLUESKY_PASSWORD }}
+          docker compose up --build --abort-on-container-exit
         env:
           BLUESKY_USERNAME: ${{ secrets.BLUESKY_USERNAME }}
           BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
