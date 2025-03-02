@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      BLUESKY_USERNAME: ${BLUESKY_USERNAME}
-      BLUESKY_PASSWORD: ${BLUESKY_PASSWORD}
+      USERNAME: ${BLUESKY_USERNAME}
+      PASSWORD: ${BLUESKY_PASSWORD}
     volumes:
       - .:/code
     command: python3 main.py
