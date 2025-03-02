@@ -19,6 +19,7 @@ jobs:
       - name: Debug Environment Variables
         run: |
           echo "BLUESKY_USERNAME is set"
+          echo "${{ secrets.BLUSKY_USERNAME }}"
           echo "BLUESKY_PASSWORD is set"
         env:
           BLUESKY_USERNAME: ${{ secrets.BLUESKY_USERNAME }}
