@@ -66,6 +66,7 @@ def fetch_market_close(symbol):
 def post_to_bluesky(text, image_path):
     username = get_env("BLUESKY_USERNAME")
     password = get_env("BLUESKY_PASSWORD")
+    print(f"Username: {username}, Password: {'SET' if password else 'NOT SET'}")
 
     client = Client()
     client.login(username, password)
