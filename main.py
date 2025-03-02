@@ -90,10 +90,10 @@ def main():
 
         if change > 0:
             image = STONKS_IMAGE
-            message = f"stonks\n\n{name} 📈: {today_close:.2f} (+{change:.2f}, {percentage_change:.2f}%)"
+            message = f"#stonks\n\n{name} 📈: {today_close:.2f} (+{change:.2f}, {percentage_change:.2f}%)"
         else:
             image = NOT_STONKS_IMAGE
-            message = f"not stonks\n\n{name} 📉: {today_close:.2f} ({change:.2f}, {percentage_change:.2f}%)"
+            message = f"#not stonks\n\n{name} 📉: {today_close:.2f} ({change:.2f}, {percentage_change:.2f}%)"
 
         post_to_bluesky(message, image)
 
