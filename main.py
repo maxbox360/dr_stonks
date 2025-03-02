@@ -5,7 +5,6 @@ from atproto import Client, models
 from PIL import Image
 from dotenv import load_dotenv
 
-# Configuration
 DJIA_SYMBOL = "^DJI"
 SP500_SYMBOL = "^GSPC"
 
@@ -26,18 +25,17 @@ def get_env(name):
 
 def compress_image(image_path, max_size=970):
     img = Image.open(image_path)
-    img = img.convert("RGB")  # Convert to RGB (removes transparency)
+    img = img.convert("RGB")
 
-    quality = 85  # Start at 85% quality
+    quality = 85
     while True:
         img.save(image_path, "JPEG", quality=quality)
         if os.path.getsize(image_path) / 1024 <= max_size or quality <= 10:
             break
-        quality -= 5  # Decrease quality in steps
+        quality -= 5
     return image_path
 
 
-# Get previous market close date
 def get_previous_market_date():
     today = datetime.datetime.today()
     if today.weekday() == 0:
@@ -48,7 +46,6 @@ def get_previous_market_date():
     return previous_day.strftime("%Y-%m-%d")
 
 
-# Fetch market data
 def fetch_market_close(symbol):
     stock = yf.Ticker(symbol)
     hist = stock.history(period="5d")
@@ -62,7 +59,6 @@ def fetch_market_close(symbol):
     return today_close, prev_close
 
 
-# Post to Bluesky
 def post_to_bluesky(text, image_path):
     username = get_env("BLUESKY_USERNAME")
     password = get_env("BLUESKY_PASSWORD")
@@ -83,7 +79,6 @@ def post_to_bluesky(text, image_path):
     client.send_post(text=text, embed=image_embed)
 
 
-# Main function
 def main():
     for symbol, name in [(DJIA_SYMBOL, "Dow Jones"), (SP500_SYMBOL, "S&P 500")]:
         today_close, prev_close = fetch_market_close(symbol)
