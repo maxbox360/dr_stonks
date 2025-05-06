@@ -58,7 +58,7 @@ def fetch_market_close(symbol):
 
     return today_close, prev_close
 
-
+# Comment to reactivate the bot
 def post_to_bluesky(text, image_path):
     username = get_env("BLUESKY_USERNAME")
     password = get_env("BLUESKY_PASSWORD")
